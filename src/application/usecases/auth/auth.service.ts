@@ -8,7 +8,7 @@ import { RegisterDto } from 'src/presentation/controllers/auth/dto/register.dto'
 import { LoginDto } from 'src/presentation/controllers/auth/dto/login.dto';
 
 @Injectable()
-export class AuthService {]
+export class AuthService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
     private jwtService: JwtService,
@@ -36,6 +36,7 @@ export class AuthService {]
     }
 
     const payload = { sub: user.id, email: user.email };
+
     return {
       access_token: this.jwtService.sign(payload),
     };
